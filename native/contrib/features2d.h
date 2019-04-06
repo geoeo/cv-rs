@@ -1,7 +1,7 @@
 #ifndef CV_RS_FEATURES2D_H
 #define CV_RS_FEATURES2D_H
 
-#include "common.h"
+#include "../common.h"
 #include <opencv2/core.hpp>
 #include <opencv2/features2d.hpp>
 #include <opencv2/xfeatures2d.hpp>

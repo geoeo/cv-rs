@@ -99,20 +99,22 @@ mod unix {
     }
 
     pub fn opencv_link() {
-        let cargo_rustc_link_search = env::var("OPENCV_LIB").unwrap_or("/use/local/lib".into());
+        let cargo_rustc_link_search = env::var("OPENCV_LIB").unwrap_or("/usr/local/lib".into());
 
         println!("cargo:rustc-link-search=native={}", cargo_rustc_link_search);
         println!("cargo:rustc-link-lib=opencv_core");
         println!("cargo:rustc-link-lib=opencv_features2d");
-        println!("cargo:rustc-link-lib=opencv_xfeatures2d");
         println!("cargo:rustc-link-lib=opencv_highgui");
-        println!("cargo:rustc-link-lib=opencv_img_hash");
         println!("cargo:rustc-link-lib=opencv_imgcodecs");
         println!("cargo:rustc-link-lib=opencv_imgproc");
         println!("cargo:rustc-link-lib=opencv_objdetect");
-        println!("cargo:rustc-link-lib=opencv_text");
         println!("cargo:rustc-link-lib=opencv_videoio");
         println!("cargo:rustc-link-lib=opencv_video");
+        if cfg!(feature = "contrib") {
+            println!("cargo:rustc-link-lib=opencv_xfeatures2d");
+            println!("cargo:rustc-link-lib=opencv_img_hash");
+            println!("cargo:rustc-link-lib=opencv_text");
+        }
         if cfg!(feature = "cuda") {
             println!("cargo:rustc-link-lib=opencv_cudaobjdetect");
         }

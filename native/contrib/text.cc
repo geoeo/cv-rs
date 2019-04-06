@@ -1,5 +1,5 @@
 #include "text.h"
-#include "utils.h"
+#include "../utils.h"
 
 extern "C" {
 void cv_ocr_run(cv::Ptr<cv::text::BaseOCR>& ocr,

@@ -1,7 +1,7 @@
 #ifndef CV_RS_TEXT_H
 #define CV_RS_TEXT_H
 
-#include "common.h"
+#include "../common.h"
 #include <opencv2/core.hpp>
 #include <opencv2/text/ocr.hpp>
 
